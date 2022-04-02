@@ -1,0 +1,14 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+@mixin resetButton() {
+  & {
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+}
