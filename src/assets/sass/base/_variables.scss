@@ -22,7 +22,7 @@ $border-3: 0.18rem;
 // ? Font Type
 // Ex.: font-family: $font-sans;
 // ==========================================================================
-$font-sans: arial, sans-serif;
+$font-sans: 'Raleway', arial, sans-serif;
 
 // ==========================================================================
 // ? Font Weight
@@ -33,6 +33,8 @@ $font-thin: $font-hairline; // only fallback, ALWAYS USE $font-hairline
 $font-light: 300;
 $font-regular: 400;
 $font-normal: $font-regular; // only fallback, ALWAYS USE $font-regular
+$font-medium: 500;
+$font-semi-bold: 600;
 $font-bold: 700;
 $font-black: 900;
 

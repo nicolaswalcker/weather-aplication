@@ -23,7 +23,7 @@ module.exports = {
         @import "@/assets/sass/base/_utils.scss";
         @import "@/assets/sass/base/_keyframes.scss";
         @import "@/assets/sass/base/_normalize.scss";
-        @import "@/assets/sass/base/global.scss";
+        @import "@/assets/sass/base/_global.scss";
         `,
       },
     },

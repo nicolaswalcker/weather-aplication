@@ -1,24 +1,23 @@
 <template>
   <div class="home">
-    <div class="home">
-      <!-- Using a SVG -->
-      <SvgElement
-        type="logo"
-        name="VueLogo"
-        title="Vue.js"
-      />
-
-      <HelloWorld msg="Welcome to Your Vue.js App" />
-    </div>
+    <SideBar />
+    <div>sa41as54</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue';
-  export default {
-    name: 'Home',
-    components: {
-      HelloWorld
-    }
-  };
+import SideBar from '../components/SideBar.vue';
+export default {
+  name: 'Home',
+  components: {
+    SideBar
+  }
+};
 </script>
+<style lang="scss" scoped>
+.home {
+  display:grid;
+  grid-template-columns: 25% 1fr;
+  height: 100%;
+}
+</style>
