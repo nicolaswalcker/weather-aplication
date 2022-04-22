@@ -36,6 +36,7 @@ export default {
   align-items: center;
   justify-content: space-evenly;
   color: $text-100;
+  min-height: 200px;
 
   &-title {
     font-size: 1rem;

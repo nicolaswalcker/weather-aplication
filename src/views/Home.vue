@@ -203,8 +203,8 @@ export default {
   }
 
   &__info {
-    display: grid;
-    grid-template-rows: 200px;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     width: 100%;
     @include breakpoint(medium-up) {
