@@ -1,50 +1,67 @@
 <template>
   <aside class="aside">
-    <div class="aside__bg">
-      <img
-        src="@/assets/img/weatherIcons/03d.svg"
-      ><img
-        src="@/assets/img/weatherIcons/03d.svg"
-      ><img
-        src="@/assets/img/weatherIcons/03d.svg"
-      ><img
-        src="@/assets/img/weatherIcons/03d.svg"
-      >
-    </div>
+    <slot class="aside__select" />
     <figure class="aside__image">
       <img
-        src="@/assets/img/weatherIcons/10d.svg"
+        :src="require(`@/assets/img/weatherIcons/${asideWeatherImage}.svg`)"
         alt="#"
       >
     </figure>
     <article class="aside__temp">
       <h1 class="aside__temp-number">
-        15
+        {{ Math.round(asideWeatherTemp) }}
       </h1>
       <p class="aside__temp-metric">
         °C
       </p>
     </article>
     <h2 class="aside__weather">
-      Shower
+      {{ capitalize(asideWeatherState) }}
     </h2>
     <article class="aside__infos">
       <p class="aside__infos-date">
-        <span class="aside__infos-date-text">Today</span>
+        <span class="aside__infos-date-text">Hoje</span>
         <span class="aside__infos-date-text">&nbsp;&bull;</span>
-        <span class="aside__infos-date-text">Fri, 5 jun</span>
+        <span class="aside__infos-date-text">{{ getDate(asideDate) }}</span>
       </p>
       <p class="aside__infos-location">
-        Helsinki
+        {{ asideCity }} - ES
       </p>
     </article>
   </aside>
 </template>
 
 <script>
-  export default {
-    name: 'SideBar',
-  };
+import { capitalize, getDate } from '@/helpers';
+export default {
+  name: 'SideBar',
+  props: {
+    asideWeatherImage: {
+      type: String,
+      required: true,
+    },
+    asideWeatherTemp: {
+      type: Number,
+      required: true,
+    },
+    asideWeatherState: {
+      type: String,
+      required: true,
+    },
+    asideDate: {
+      type: Number,
+      required: true,
+    },
+    asideCity: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    capitalize,
+    getDate
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,24 +73,17 @@
   align-items: center;
   width: 100%;
   position: relative;
+  overflow: hidden;
+  height: 100vh;
+  padding: 0.75rem 0;
 
-  &__bg {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    column-gap: 50%;
-    width: 80%;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    opacity: 0.05;
-    transform: skew(5deg);
-    z-index: 1;
+  &__select {
+    width: 100%;
   }
 
   &__image {
     width: 50%;
-    transition: all .2s $transition-function-elastic;
+    transition: all 0.2s $transition-function-elastic;
     z-index: 2;
 
     &:hover {
@@ -82,7 +92,7 @@
   }
 
   &__temp {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: baseline;
 
